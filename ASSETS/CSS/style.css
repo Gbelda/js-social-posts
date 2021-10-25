@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(25, 47, 88);
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.card{
+    height: 525px;
+    width: 600px;
+    background-color: white;
+    margin: auto;
+}
+
+#profile_picture{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.user_name{
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+}
+
+.post_date{
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgb(92, 92, 92);
+}
+
+.post_img img{
+width: 100%;
+height: 250px;
+}
+
+.like{
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(92, 92, 92);
+}
+
+.like_counter{
+        font-size: 1rem;
+    font-weight: bold;
+    color: rgb(92, 92, 92);
+}
+
+.like_info{
+    height: 100%;
+}
