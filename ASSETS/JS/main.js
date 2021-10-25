@@ -51,7 +51,7 @@ let divEl = document.querySelector('.container')
 for (let i = 0; i < post.length; i++) {
     let article = post[i]
     let postEl =
-        `<div class="card ${article.postId}">
+        `<div class="card">
     <div class="row user pt-3">
     <div class="userPicture col-2 text-end">
                                 <img
@@ -85,7 +85,7 @@ for (let i = 0; i < post.length; i++) {
                                 </button>
                             </div>
                             <div class="like_counter col-6">
-                                ${article.likes} people like this
+                                <span id="${article.postId}">${article.likes}</span> people like this
                             </div>
     
                         </div>
@@ -95,15 +95,17 @@ for (let i = 0; i < post.length; i++) {
     divEl.insertAdjacentHTML('beforeend', postEl)
     let likeEl = document.getElementsByClassName('like')
     likeEl[i].addEventListener('click', function () {
+        let likeNumber = parseInt(document.getElementById(`${article.postId}`).innerHTML) + 1
+        let unlikeNumber = parseInt(document.getElementById(`${article.postId}`).innerHTML) - 1
         this.classList.add('blue')
         if (!likedPosts.includes(article.postId)) {
             likedPosts.push(article.postId)
-
+            document.getElementById(`${article.postId}`).innerHTML = likeNumber
         } else {
             this.classList.remove('blue')
             likedPosts.splice(this)
+            document.getElementById(`${article.postId}`).innerHTML = unlikeNumber
         }
-        console.log(likedPosts);
     })
 
 
