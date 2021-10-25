@@ -3,6 +3,7 @@
 autore(nome, avatar), numero di likes, data creazione. */
 //Un secondo array conterrà solo gli id dei posts a cui abbiamo dato like.
 
+let likedPosts = []
 let post = [
     {
         postId: 'post1',
@@ -10,7 +11,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Lisa Manoban",
         userPicture: "https://otakukart.com/wp-content/uploads/2021/07/lisa.jpg",
-        likes: 'x',
+        likes: likedPosts.length,
         datePosted: '2 months ago'
 
     },
@@ -20,7 +21,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Roseanne Park",
         userPicture: "https://i1.sndcdn.com/avatars-000623436993-nsww59-t500x500.jpg",
-        likes: 'x',
+        likes: likedPosts.length,
         datePosted: '3 months ago'
 
     },
@@ -30,7 +31,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Kim Ji-soo",
         userPicture: "https://qph.fs.quoracdn.net/main-qimg-7cbb400dde17f590f6b2726437768aa2",
-        likes: 'x',
+        likes: likedPosts.length,
         datePosted: '1 month ago'
 
     },
@@ -40,21 +41,19 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Jennie Kim",
         userPicture: "https://pbs.twimg.com/profile_images/1091914487525855233/pMvobmHb_400x400.jpg",
-        likes: 'x',
+        likes: likedPosts.length,
         datePosted: '3 months ago'
 
     },
 ]
-
 let divEl = document.querySelector('.container')
 
 for (let i = 0; i < post.length; i++) {
-    const article = post[i];
-
+    let article = post[i]
     let postEl =
-        `<div class="card ${article.articleId}">
-                        <div class="row user pt-3">
-                            <div class="userPicture col-2 text-end">
+        `<div class="card ${article.postId}">
+    <div class="row user pt-3">
+    <div class="userPicture col-2 text-end">
                                 <img
                                     src="${article.userPicture}"
                                       alt = "" id = "profile_picture" >
@@ -69,7 +68,7 @@ for (let i = 0; i < post.length; i++) {
                         </div>
                         </div >
                         <div class="px-2">
-                            <p>
+                            <p class="content">
                                 ${article.content}
                             </p>
                             <div class="post_img">
@@ -86,14 +85,22 @@ for (let i = 0; i < post.length; i++) {
                                 </button>
                             </div>
                             <div class="like_counter col-6">
-                                ${article.likes} people like this
+                                ${article["likes"]} people like this
                             </div>
     
                         </div>
                     </div >
 
         `
-
     divEl.insertAdjacentHTML('beforeend', postEl)
-}
+    let likeEl = document.getElementsByClassName('like')
+    likeEl[i].addEventListener('click', function () {
+        likeEl[i].classList.add('blue')
+        likedPosts.push(article.postId)
+        console.log(likedPosts);
+        console.log(likedPosts.length);
+    })
 
+
+
+}

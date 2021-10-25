@@ -49,7 +49,7 @@ h1{
 
 .post_img img{
 width: 100%;
-height: 250px;
+height: 270px;
 }
 
 .like{
@@ -68,4 +68,12 @@ height: 250px;
 
 .like_info{
     height: 100%;
+}
+
+.content{
+    min-height: 70px;
+}
+
+.blue{
+    color: blue;
 }
