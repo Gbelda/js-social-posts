@@ -11,7 +11,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Lisa Manoban",
         userPicture: "https://otakukart.com/wp-content/uploads/2021/07/lisa.jpg",
-        likes: likedPosts.length,
+        likes: 180,
         datePosted: '2 months ago'
 
     },
@@ -21,7 +21,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Roseanne Park",
         userPicture: "https://i1.sndcdn.com/avatars-000623436993-nsww59-t500x500.jpg",
-        likes: likedPosts.length,
+        likes: 100,
         datePosted: '3 months ago'
 
     },
@@ -31,7 +31,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Kim Ji-soo",
         userPicture: "https://qph.fs.quoracdn.net/main-qimg-7cbb400dde17f590f6b2726437768aa2",
-        likes: likedPosts.length,
+        likes: 200,
         datePosted: '1 month ago'
 
     },
@@ -41,7 +41,7 @@ let post = [
         image: 'https://picsum.photos/500/300',
         userName: "Jennie Kim",
         userPicture: "https://pbs.twimg.com/profile_images/1091914487525855233/pMvobmHb_400x400.jpg",
-        likes: likedPosts.length,
+        likes: 302,
         datePosted: '3 months ago'
 
     },
@@ -85,7 +85,7 @@ for (let i = 0; i < post.length; i++) {
                                 </button>
                             </div>
                             <div class="like_counter col-6">
-                                ${article["likes"]} people like this
+                                ${article.likes} people like this
                             </div>
     
                         </div>
@@ -95,10 +95,15 @@ for (let i = 0; i < post.length; i++) {
     divEl.insertAdjacentHTML('beforeend', postEl)
     let likeEl = document.getElementsByClassName('like')
     likeEl[i].addEventListener('click', function () {
-        likeEl[i].classList.add('blue')
-        likedPosts.push(article.postId)
-        console.log(likedPosts);
-        console.log(likedPosts.length);
+        this.classList.add('blue')
+        if (!likedPosts.includes(article.postId)) {
+            likedPosts.push(article.postId)
+
+        } else {
+            this.classList.remove('blue')
+            likedPosts.splice(i)
+        }
+
     })
 
 
