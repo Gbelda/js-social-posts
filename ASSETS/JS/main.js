@@ -101,9 +101,9 @@ for (let i = 0; i < post.length; i++) {
 
         } else {
             this.classList.remove('blue')
-            likedPosts.splice(i)
+            likedPosts.splice(this)
         }
-
+        console.log(likedPosts);
     })
 
 
